@@ -1,4 +1,4 @@
-package com.example.zielonytarg.data;
+package com.example.zielonytarg;
 
 public class Category {
     private int id;

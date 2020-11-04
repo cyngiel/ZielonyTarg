@@ -1,4 +1,4 @@
-package com.example.zielonytarg.data;
+package com.example.zielonytarg;
 
 import java.io.File;
 import java.io.FileNotFoundException;

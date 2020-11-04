@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "9714337510",
+    "firebase_url": "https://zielonytarg-4b1ca.firebaseio.com",
+    "project_id": "zielonytarg-4b1ca",
+    "storage_bucket": "zielonytarg-4b1ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9714337510:android:239c353a920fac88531d27",
+        "android_client_info": {
+          "package_name": "com.example.zielonytarg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9714337510-nkas35tnuci4jde1ekct7rhb3sck6qd9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zielonytarg",
+            "certificate_hash": "eea4163bca8fa3a80aaedd96eaf057b726b8edef"
+          }
+        },
+        {
+          "client_id": "9714337510-iu282ii6p0dljuk0fplq6gafgta5ptae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu78rwOaYHesOYSmCduniZGw5JL5I2X20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9714337510-iu282ii6p0dljuk0fplq6gafgta5ptae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
