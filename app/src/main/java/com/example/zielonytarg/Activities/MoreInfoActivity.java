@@ -1,34 +1,31 @@
 package com.example.zielonytarg.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.zielonytarg.R;
 
-public class MainActivity extends AppCompatActivity {
-
-    Button BtnStart;
+public class MoreInfoActivity extends AppCompatActivity {
+    Button BtnReturn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_more_info);
 
-        //Hooks to all xml elements in activity_sign_up.xml
-        BtnStart = findViewById(R.id.btn_start);
+        BtnReturn = findViewById(R.id.btn_return);
 
-        BtnStart.setOnClickListener(new View.OnClickListener() {
+        BtnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
                 startActivity(intent);
             }
         });
-
     }
-
 }
