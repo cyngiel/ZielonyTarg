@@ -8,11 +8,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.zielonytarg.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private TextInputLayout loginEmailLayout, loginPasswordLayout;
+    private TextInputEditText loginEmailLayout, loginPasswordLayout;
     private Button loginSignIn, loginSignUp;
 
     @Override
@@ -36,8 +37,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     void linkResourcesToFields() {
-        loginEmailLayout = findViewById(R.id.loginEmailLayout);
-        loginPasswordLayout = findViewById(R.id.loginPasswordLayout);
+        loginEmailLayout = findViewById(R.id.loginEmail);
+        loginPasswordLayout = findViewById(R.id.loginPassword);
         loginSignIn = findViewById(R.id.loginSignIn);
         loginSignUp = findViewById(R.id.loginSignUp);
     }

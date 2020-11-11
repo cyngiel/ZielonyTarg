@@ -14,10 +14,12 @@ import android.widget.Toast;
 import com.example.zielonytarg.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -25,7 +27,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private TextInputLayout registerFullNameLayout, registerEmailLayout, registerPasswordLayout;
+    private TextInputEditText registerFullName, registerEmail, registerPassword;
     private Button registerSignUp;
 
     FirebaseAuth fAuth;
@@ -53,41 +55,41 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean validateEmail() {
-        String emailInput = registerEmailLayout.getEditText().getText().toString().trim();
+        String emailInput = registerEmail.getText().toString().trim();
         if (emailInput.isEmpty()) {
-            registerEmailLayout.setError("Field can't be empty");
+            registerEmail.setError("Field can't be empty");
             return false;
         } else {
-            registerEmailLayout.setError(null);
+            registerEmail.setError(null);
             return true;
         }
     }
 
     private boolean validateUsername() {
-        String usernameInput = registerFullNameLayout.getEditText().getText().toString().trim();
+        String usernameInput = registerFullName.getText().toString().trim();
         if (usernameInput.isEmpty()) {
-            registerFullNameLayout.setError("Field can't be empty");
+            registerFullName.setError("Field can't be empty");
             return false;
         } else if (usernameInput.length() > 15) {
-            registerFullNameLayout.setError("Username too long");
+            registerFullName.setError("Username too long");
             return false;
         } else {
-            registerFullNameLayout.setError(null);
+            registerFullName.setError(null);
             return true;
         }
     }
 
     private boolean validatePassword() {
-        String passwordInput = registerPasswordLayout.getEditText().getText().toString().trim();
+        String passwordInput = registerPassword.getText().toString().trim();
         if (passwordInput.isEmpty()) {
-            registerPasswordLayout.setError("Field can't be empty");
+            registerPassword.setError("Field can't be empty");
             return false;
         }
         else if (passwordInput.length() < 5) {
-            registerFullNameLayout.setError("Password too short");
+            registerFullName.setError("Password too short");
             return false;
         } else {
-            registerPasswordLayout.setError(null);
+            registerPassword.setError(null);
             return true;
         }
     }
@@ -109,7 +111,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     // create user
     private void createUser(){
-        fAuth.createUserWithEmailAndPassword(registerEmailLayout.getEditText().getText().toString(),registerPasswordLayout.getEditText().getText().toString()).
+        fAuth.createUserWithEmailAndPassword(registerEmail.getText().toString(),registerPassword.getText().toString()).
                 addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
@@ -117,11 +119,21 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
 
                         Map<String, Object> userInfo = new HashMap<>();
-                        userInfo.put("FullName", registerFullNameLayout.getEditText().getText().toString());
-                        userInfo.put("Email", registerEmailLayout.getEditText().getText().toString());
-                        userInfo.put("Password", registerPasswordLayout.getEditText().getText().toString());
+                        userInfo.put("FullName", registerFullName.getText().toString());
+                        userInfo.put("Email", registerEmail.getText().toString());
+                        userInfo.put("Password", registerPassword.getText().toString());
 
-                        fStore.collection("users").document("dupa").set(userInfo);
+                        fStore.collection("dupa").add(userInfo).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Toast.makeText(RegisterActivity.this, "nice", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(RegisterActivity.this, "nope", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();
@@ -130,6 +142,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(RegisterActivity.this, "Failed to Create Account", Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
             }
         });
     }
@@ -143,9 +156,9 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     void linkResourcesToFields() {
-        registerFullNameLayout = findViewById(R.id.registerFullNameLayout);
-        registerEmailLayout = findViewById(R.id.registerEmailLayout);
-        registerPasswordLayout = findViewById(R.id.registerPasswordLayout);
+        registerFullName = findViewById(R.id.registerFullName);
+        registerEmail = findViewById(R.id.registerEmail);
+        registerPassword = findViewById(R.id.registerPassword);
         registerSignUp = findViewById(R.id.registerSignUp);
     }
 
