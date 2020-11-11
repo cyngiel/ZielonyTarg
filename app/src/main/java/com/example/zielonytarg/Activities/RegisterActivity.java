@@ -123,7 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
                         userInfo.put("Email", registerEmail.getText().toString());
                         userInfo.put("Password", registerPassword.getText().toString());
 
-                        fStore.collection("dupa").add(userInfo).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        fStore.collection("Users").add(userInfo).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
                                 Toast.makeText(RegisterActivity.this, "nice", Toast.LENGTH_SHORT).show();
