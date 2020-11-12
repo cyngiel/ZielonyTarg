@@ -14,6 +14,7 @@ public class StartActivity extends AppCompatActivity {
     Button BtnAddAdvertisements;
     Button BtnMoreInfo;
     Button BtnFindAdvertisements;
+    Button BtnDatabaseTest;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class StartActivity extends AppCompatActivity {
         BtnAddAdvertisements = findViewById(R.id.btn_add_advertisements);
         BtnMoreInfo = findViewById(R.id.btn_more_info);
         BtnFindAdvertisements = findViewById(R.id.btn_find_advertisements);
+        BtnDatabaseTest = findViewById(R.id.btn_database_test);
 
         BtnAddAdvertisements.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,5 +50,12 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        BtnDatabaseTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DatabaseTestActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

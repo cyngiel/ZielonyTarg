@@ -21,6 +21,7 @@
         <activity android:name=".Activities.StartActivity"></activity>
         <activity android:name=".Activities.MoreInfoActivity"></activity>
         <activity android:name=".Activities.AdvertismentsByCityActivity"></activity>
+        <activity android:name=".Activities.DatabaseTestActivity"></activity>
     </application>
 
 </manifest>
