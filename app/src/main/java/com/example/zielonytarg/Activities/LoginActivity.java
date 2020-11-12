@@ -1,35 +1,45 @@
-
 package com.example.zielonytarg.Activities;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.zielonytarg.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button BtnRegister;
+    private TextInputEditText loginEmailLayout, loginPasswordLayout;
+    private Button loginSignIn, loginSignUp;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        BtnRegister = findViewById(R.id.btn_register);
+        linkResourcesToFields();
 
-        BtnRegister.setOnClickListener(new View.OnClickListener() {
+        loginSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(intent);
+                openRegisterActivity();
             }
         });
-
     }
 
+    void openRegisterActivity(){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    void linkResourcesToFields() {
+        loginEmailLayout = findViewById(R.id.loginEmail);
+        loginPasswordLayout = findViewById(R.id.loginPassword);
+        loginSignIn = findViewById(R.id.loginSignIn);
+        loginSignUp = findViewById(R.id.loginSignUp);
+    }
 }
