@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activities.LoginActivity"></activity>
+        <activity android:name=".Activities.RegisterActivity"></activity>
+        <activity android:name=".Activities.StartActivity"></activity>
+        <activity android:name=".Activities.MoreInfoActivity"></activity>
+        <activity android:name=".Activities.AdvertismentsByCityActivity"></activity>
+        <activity android:name=".Activities.DatabaseTestActivity"></activity>
     </application>
 
 </manifest>
