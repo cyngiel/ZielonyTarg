@@ -1,4 +1,4 @@
-package com.example.zielonytarg.Activities;
+package com.example.zielonytarg.basicActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
