@@ -123,17 +123,8 @@ public class RegisterActivity extends AppCompatActivity {
                         userInfo.put("Email", registerEmail.getText().toString());
                         userInfo.put("Password", registerPassword.getText().toString());
 
-                        fStore.collection("Users").add(userInfo).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(RegisterActivity.this, "nice", Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(RegisterActivity.this, "nope", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        DocumentReference df = fStore.collection("Users").document(user.getUid());
+                        df.set(userInfo);
 
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();
