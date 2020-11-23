@@ -1,4 +1,4 @@
-package com.example.zielonytarg.Activities;
+package com.example.zielonytarg.basicActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zielonytarg.R;
+import com.example.zielonytarg.advertisements.AddAdvertisementsStartActivity;
+import com.example.zielonytarg.advertisements.AdvertismentsByCityActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class StartActivity extends AppCompatActivity {
     Button BtnAddAdvertisements;
@@ -29,8 +32,14 @@ public class StartActivity extends AppCompatActivity {
         BtnAddAdvertisements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
+                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                    startActivity(new Intent(getApplicationContext(), AddAdvertisementsStartActivity.class));
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 

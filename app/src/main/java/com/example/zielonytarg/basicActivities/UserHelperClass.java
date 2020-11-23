@@ -1,4 +1,4 @@
-package com.example.zielonytarg.Activities;
+package com.example.zielonytarg.basicActivities;
 
 public class UserHelperClass {
     String name, emial, password;

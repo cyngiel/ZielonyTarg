@@ -1,4 +1,4 @@
-package com.example.zielonytarg.Activities;
+package com.example.zielonytarg.advertisements;
 
 import android.os.Bundle;
 
