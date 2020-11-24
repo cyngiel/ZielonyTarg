@@ -10,21 +10,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zielonytarg.R;
 
-public class AdvertismentsByCityActivity extends AppCompatActivity {
-    Button BtnWarszawa;
+public class SearchActivity extends AppCompatActivity {
+    Button BtnOwoce;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_advertisments_by_city);
+        setContentView(R.layout.activity_search);
 
-        BtnWarszawa = findViewById(R.id.warszawa);
+        BtnOwoce = findViewById(R.id.btn_warzywa);
 
-        BtnWarszawa.setOnClickListener(new View.OnClickListener() {
+        BtnOwoce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
                 startActivity(intent);
             }
         });
+
+
     }
 }

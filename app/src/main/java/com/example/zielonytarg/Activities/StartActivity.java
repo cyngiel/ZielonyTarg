@@ -9,12 +9,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zielonytarg.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class StartActivity extends AppCompatActivity {
     Button BtnAddAdvertisements;
     Button BtnMoreInfo;
     Button BtnFindAdvertisements;
     Button BtnDatabaseTest;
+    Button BtnMojeKonto;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,12 +27,20 @@ public class StartActivity extends AppCompatActivity {
         BtnMoreInfo = findViewById(R.id.btn_more_info);
         BtnFindAdvertisements = findViewById(R.id.btn_find_advertisements);
         BtnDatabaseTest = findViewById(R.id.btn_database_test);
+        BtnMojeKonto = findViewById(R.id.btn_moje_konto);
 
         BtnAddAdvertisements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                //startActivity(intent);
+                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                    startActivity(new Intent(getApplicationContext(), AddAdvertisementsStartActivity.class));
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -54,6 +64,14 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DatabaseTestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        BtnMojeKonto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DetailsAccountActivity.class);
                 startActivity(intent);
             }
         });
