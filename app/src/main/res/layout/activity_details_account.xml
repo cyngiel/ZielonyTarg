@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.LoginActivity"
+    tools:context=".basicActivities.LoginActivity"
     android:padding="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/text_full_name"
+            android:id="@+id/text_product_name"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -73,7 +73,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
         <TextView
-            android:id="@+id/text_tel"
+            android:id="@+id/text_cena"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -94,22 +94,23 @@
             app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
         <TextView
-            android:id="@+id/text_city"
+            android:id="@+id/text_odmiana"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text=" "
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_tel" />
+            app:layout_constraintTop_toBottomOf="@+id/text_cena" />
 
         <Button
-            android:id="@+id/btw_wiecej_prod"
+            android:id="@+id/btn_return_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner"
             android:gravity="center"
-            android:text="Powrót"
+            android:text="-> Powrót"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -126,7 +127,7 @@
             android:layout_marginRight="90dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_full_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_product_name"
             app:srcCompat="@drawable/home" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

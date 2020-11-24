@@ -1,4 +1,4 @@
-package com.example.zielonytarg.Activities;
+package com.example.zielonytarg.basicActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,20 +10,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zielonytarg.R;
 
-public class SearchProductActivity extends AppCompatActivity {
-    Button BtnMarchew;
+public class MoreInfoActivity extends AppCompatActivity {
+    Button BtnReturn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_product);
+        setContentView(R.layout.activity_more_info);
 
-        BtnMarchew = findViewById(R.id.btn_marchew);
+        BtnReturn = findViewById(R.id.btn_return);
 
-        BtnMarchew.setOnClickListener(new View.OnClickListener() {
+        BtnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
                 startActivity(intent);
             }
         });

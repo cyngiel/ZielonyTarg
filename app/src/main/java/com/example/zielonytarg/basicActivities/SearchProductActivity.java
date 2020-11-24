@@ -1,4 +1,4 @@
-package com.example.zielonytarg.Activities;
+package com.example.zielonytarg.basicActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,23 +10,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zielonytarg.R;
 
-public class SearchActivity extends AppCompatActivity {
-    Button BtnOwoce;
+public class SearchProductActivity extends AppCompatActivity {
+    Button BtnMarchew;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_search_product);
 
-        BtnOwoce = findViewById(R.id.btn_warzywa);
+        BtnMarchew = findViewById(R.id.btn_marchew);
 
-        BtnOwoce.setOnClickListener(new View.OnClickListener() {
+        BtnMarchew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
                 startActivity(intent);
             }
         });
-
-
     }
 }

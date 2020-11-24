@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.LoginActivity"
+    tools:context=".basicActivities.LoginActivity"
     android:padding="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,11 +15,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/text_full_name"
+            android:id="@+id/text_product_name"
             android:layout_width="210dp"
-            android:layout_height="55dp"
-            android:text="    ..............."
-            android:textSize="24sp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" "
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,89 +28,73 @@
         <TextView
             android:id="@+id/textView46"
             android:layout_width="170dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Producent"
-            android:textSize="24sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
         <TextView
             android:id="@+id/text_producent"
             android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:text="..............."
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" "
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
         <TextView
             android:id="@+id/textView48"
             android:layout_width="230dp"
-            android:layout_height="53dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="Informacje"
-            android:textSize="30sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_full_name" />
+            app:layout_constraintTop_toBottomOf="@+id/text_product_name" />
 
         <TextView
             android:id="@+id/textView49"
             android:layout_width="170dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Cena"
-            android:textSize="24sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
         <TextView
-            android:id="@+id/text_tel"
+            android:id="@+id/text_cena"
             android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:text="..............."
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" "
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_producent" />
 
         <TextView
             android:id="@+id/textView51"
             android:layout_width="170dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Odmiana"
-            android:textSize="24sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
         <TextView
-            android:id="@+id/text_city"
+            android:id="@+id/text_odmiana"
             android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:text="..............."
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_tel" />
-
-        <Button
-            android:id="@+id/btn_wiecej"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/rounded_corner1"
             android:gravity="center"
-            android:text="Wyświetl więcej informacji o produktach"
-            app:layout_constraintBottom_toTopOf="@+id/btw_wiecej_prod"
+            android:text=" "
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/text_cena" />
 
-        <Button
-            android:id="@+id/btw_wiecej_prod"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corner"
-            android:gravity="center"
-            android:text="Więcej od tego producenta"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

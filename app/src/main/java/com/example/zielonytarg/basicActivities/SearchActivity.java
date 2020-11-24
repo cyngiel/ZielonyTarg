@@ -1,4 +1,4 @@
-package com.example.zielonytarg.Activities;
+package com.example.zielonytarg.basicActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,22 +10,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zielonytarg.R;
 
-public class MoreInfoActivity extends AppCompatActivity {
-    Button BtnReturn;
-
+public class SearchActivity extends AppCompatActivity {
+    Button BtnOwoce;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_more_info);
+        setContentView(R.layout.activity_search);
 
-        BtnReturn = findViewById(R.id.btn_return);
+        BtnOwoce = findViewById(R.id.btn_warzywa);
 
-        BtnReturn.setOnClickListener(new View.OnClickListener() {
+        BtnOwoce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
                 startActivity(intent);
             }
         });
+
+
     }
 }

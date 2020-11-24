@@ -1,6 +1,9 @@
-package com.example.zielonytarg.Activities;
+package com.example.zielonytarg.basicActivities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -21,6 +24,7 @@ public class DetailsAccountActivity extends AppCompatActivity {
     TextView TextCity;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
+    Button BtnReturn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,10 +34,11 @@ public class DetailsAccountActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-        TextFullName = findViewById(R.id.text_full_name);
+        TextFullName = findViewById(R.id.text_product_name);
         TextProducent = findViewById(R.id.text_producent);
-        TextTel = findViewById(R.id.text_tel);
-        TextCity = findViewById(R.id.text_city);
+        TextTel = findViewById(R.id.text_cena);
+        TextCity = findViewById(R.id.text_odmiana);
+        BtnReturn = findViewById(R.id.btn_return_2);
 
         FirebaseUser user = fAuth.getCurrentUser();
         DocumentReference docRef = fStore.collection("Users").document(user.getUid());
@@ -52,7 +57,19 @@ public class DetailsAccountActivity extends AppCompatActivity {
 
                 } else {
                     TextFullName.setText("Failed");
+                    TextProducent.setText("Failed");
+                    TextTel.setText("Failed");
+                    TextCity.setText("Failed");
+
                 }
+            }
+        });
+
+        BtnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                startActivity(intent);
             }
         });
 
