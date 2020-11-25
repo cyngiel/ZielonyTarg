@@ -36,6 +36,7 @@ public class StartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 //startActivity(intent);
+
                 if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                     startActivity(new Intent(getApplicationContext(), AddAdvertisementsStartActivity.class));
                 }
@@ -43,6 +44,7 @@ public class StartActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                 }
+
             }
         });
 
