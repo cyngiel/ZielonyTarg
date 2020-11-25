@@ -13,31 +13,40 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText3"
+            android:id="@+id/addTitleText"
             android:layout_width="134dp"
             android:layout_height="wrap_content"
-            android:hint="Opis"
+            android:hint="Tytuł"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+            app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+        <Spinner
+            android:id="@+id/addAdSpinnerCategory"
+            android:layout_width="134dp"
+            android:layout_height="41dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addTitleText" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText2"
+            android:id="@+id/addCenaText"
             android:layout_width="134dp"
-            android:layout_height="wrap_content"
+            android:layout_height="41dp"
             android:hint="Cena"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/addAdSpinnerCategory" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText"
+            android:id="@+id/addOpisText"
             android:layout_width="134dp"
-            android:layout_height="wrap_content"
-            android:hint="Kategoria"
+            android:layout_height="41dp"
+            android:hint="Opis"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/addCenaText" />
+
 
         <TextView
             android:id="@+id/textView5"
@@ -94,7 +103,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
         <Button
-            android:id="@+id/btn_return_2"
+            android:id="@+id/btnDetailsAccountReturn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner"
@@ -106,15 +115,6 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
-            android:layout_width="134dp"
-            android:layout_height="wrap_content"
-            android:hint="Tytuł"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView48" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -125,15 +125,5 @@
         android:src="@android:drawable/ic_lock_idle_lock"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="dodaj ogłoszenie"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
