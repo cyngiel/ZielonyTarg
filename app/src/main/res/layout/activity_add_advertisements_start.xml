@@ -22,7 +22,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
         <Spinner
-            android:id="@+id/addCategorySpinner"
+            android:id="@+id/addAdSpinnerCategory"
             android:layout_width="134dp"
             android:layout_height="41dp"
             android:textSize="14sp"
@@ -30,13 +30,13 @@
             app:layout_constraintTop_toBottomOf="@+id/addTitleText" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/AddCenaText"
+            android:id="@+id/addCenaText"
             android:layout_width="134dp"
             android:layout_height="41dp"
             android:hint="Cena"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addCategorySpinner" />
+            app:layout_constraintTop_toBottomOf="@+id/addAdSpinnerCategory" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/addOpisText"
@@ -45,7 +45,7 @@
             android:hint="Opis"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AddCenaText" />
+            app:layout_constraintTop_toBottomOf="@+id/addCenaText" />
 
 
         <TextView

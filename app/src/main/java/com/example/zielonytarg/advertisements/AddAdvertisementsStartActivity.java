@@ -9,10 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
-import com.example.zielonytarg.basicActivities.RegisterActivity;
 import com.example.zielonytarg.basicActivities.StartActivity;
 import com.example.zielonytarg.R;
 import com.example.zielonytarg.basicActivities.MainActivity;
@@ -39,20 +37,16 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_advertisements_start);
 
-        addCategorySpinner = findViewById(R.id.addCategorySpinner);
-        BtnReturn = findViewById(R.id.btn_return_2);
-
+        linkResourcesToFields();
         spinnerInit();
 
         BtnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseUser user = fAuth.getCurrentUser();
-                //Toast.makeText(RegisterActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
 
                 AddTitleText = findViewById(R.id.addTitleText);
-                //TextInputCategory = findViewById(R.id.addCategorySpinner);
-                AddCenaText = findViewById(R.id.AddCenaText);
+                AddCenaText = findViewById(R.id.addCenaText);
                 AddOpisText = findViewById(R.id.addOpisText);
 
                 Map<String, Object> addAd = new HashMap<>();
@@ -63,15 +57,14 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
                 addAd.put("Description", AddOpisText.getText().toString());
 
                 DocumentReference df = fStore.collection("Users").document(user.getUid());
-                //df.set(addAd);
                 df.collection("Ads").document().set(addAd);
 
+                Toast.makeText(AddAdvertisementsStartActivity.this, "Advertisements Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
                 startActivity(intent);
             }
         });
 
-        linkResourcesToFields();
         firebaseInit();
         floatingButtonListener();
     }
@@ -97,10 +90,13 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
 
     void linkResourcesToFields(){
         fabAdsStart = findViewById(R.id.fabAdsStart);
+        addCategorySpinner = findViewById(R.id.addAdSpinnerCategory);
+        BtnReturn = findViewById(R.id.btn_return_2);
     }
 
     void firebaseInit() {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
     }
+
 }
