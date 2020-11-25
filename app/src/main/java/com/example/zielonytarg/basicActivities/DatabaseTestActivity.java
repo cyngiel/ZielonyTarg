@@ -79,9 +79,7 @@ public class DatabaseTestActivity extends AppCompatActivity {
 
         db.collection("Users").document(user.getUid())
                 .set(data, SetOptions.merge());
-
-        TextCategoryGet = findViewById(R.id.text_category_get);
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        
 
         //CollectionReference cities = db.collection("cities");
 
