@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zielonytarg.R;
+import com.example.zielonytarg.advertisements.AddAdvertisementsStartActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,54 +20,45 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DetailsAccountActivity extends AppCompatActivity {
-    TextView TextFullName;
-    TextView TextProducent;
-    TextView TextTel;
-    TextView TextCity;
+    TextView detailsAccountProductName, detailsAccountProducent, detailsAccountTel, detailsAccountCity;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    Button BtnReturn;
+    Button btnDetailsAccountReturn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_account);
 
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+        firebaseInit();
+        linkResourcesToFields();
 
-        TextFullName = findViewById(R.id.text_product_name);
-        TextProducent = findViewById(R.id.text_producent);
-        TextTel = findViewById(R.id.text_cena);
-        TextCity = findViewById(R.id.text_odmiana);
-        BtnReturn = findViewById(R.id.btn_return_2);
+        try {
+            FirebaseUser user = fAuth.getCurrentUser();
+            DocumentReference docRef = fStore.collection("Users").document(user.getUid());
+            docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot dcumentSnapshot ) {
+                    if (dcumentSnapshot.exists()) {
+                        String fullname = dcumentSnapshot.getString("FullName");
+                        detailsAccountProductName.setText(fullname);
+                        String producent = dcumentSnapshot.getString("FullName");
+                        detailsAccountProducent.setText(producent);
+                        String tel = dcumentSnapshot.getString("Tel");
+                        detailsAccountTel.setText(tel);
+                        String city = dcumentSnapshot.getString("City");
+                        detailsAccountCity.setText(city);
 
-        FirebaseUser user = fAuth.getCurrentUser();
-        DocumentReference docRef = fStore.collection("Users").document(user.getUid());
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot dcumentSnapshot ) {
-                if (dcumentSnapshot.exists()) {
-                    String fullname = dcumentSnapshot.getString("FullName");
-                    TextFullName .setText(fullname);
-                    String producent = dcumentSnapshot.getString("FullName");
-                    TextProducent .setText(producent);
-                    String tel = dcumentSnapshot.getString("Tel");
-                    TextTel .setText(tel);
-                    String city = dcumentSnapshot.getString("City");
-                    TextCity .setText(city);
-
-                } else {
-                    TextFullName.setText("Failed");
-                    TextProducent.setText("Failed");
-                    TextTel.setText("Failed");
-                    TextCity.setText("Failed");
-
+                    } else {
+                        Toast.makeText(DetailsAccountActivity.this, "Nie jesteś zalogowany!", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        } catch (NullPointerException e) {
+            Toast.makeText(DetailsAccountActivity.this, "Nie jesteś zalogowany!", Toast.LENGTH_SHORT).show();
+        }
 
-        BtnReturn.setOnClickListener(new View.OnClickListener() {
+        btnDetailsAccountReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
@@ -74,4 +67,18 @@ public class DetailsAccountActivity extends AppCompatActivity {
         });
 
     }
+
+    void linkResourcesToFields(){
+        detailsAccountProductName = findViewById(R.id.detailsAccountProductName);
+        detailsAccountProducent = findViewById(R.id.detailsAccountProducent);
+        detailsAccountTel = findViewById(R.id.detailsAccountTel);
+        detailsAccountCity = findViewById(R.id.detailsAccountCity);
+        btnDetailsAccountReturn = findViewById(R.id.btnDetailsAccountReturn);
+    }
+
+    void firebaseInit() {
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+    }
+
 }

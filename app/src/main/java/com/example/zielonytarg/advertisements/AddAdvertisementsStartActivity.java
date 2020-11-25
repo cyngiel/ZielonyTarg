@@ -91,7 +91,7 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
     void linkResourcesToFields(){
         fabAdsStart = findViewById(R.id.fabAdsStart);
         addCategorySpinner = findViewById(R.id.addAdSpinnerCategory);
-        BtnReturn = findViewById(R.id.btn_return_2);
+        BtnReturn = findViewById(R.id.btnDetailsAccountReturn);
     }
 
     void firebaseInit() {

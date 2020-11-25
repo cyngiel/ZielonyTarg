@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/text_product_name"
+            android:id="@+id/detailsAccountProductName"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -36,7 +36,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
         <TextView
-            android:id="@+id/text_producent"
+            android:id="@+id/detailsAccountProducent"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -56,7 +56,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_product_name" />
+            app:layout_constraintTop_toBottomOf="@+id/detailsAccountProductName" />
 
         <TextView
             android:id="@+id/textView49"
@@ -69,13 +69,13 @@
             app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
         <TextView
-            android:id="@+id/text_cena"
+            android:id="@+id/detailsAccountTel"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text=" "
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_producent" />
+            app:layout_constraintTop_toBottomOf="@+id/detailsAccountProducent" />
 
         <TextView
             android:id="@+id/textView51"
@@ -88,13 +88,13 @@
             app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
         <TextView
-            android:id="@+id/text_odmiana"
+            android:id="@+id/detailsAccountCity"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text=" "
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_cena" />
+            app:layout_constraintTop_toBottomOf="@+id/detailsAccountTel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
