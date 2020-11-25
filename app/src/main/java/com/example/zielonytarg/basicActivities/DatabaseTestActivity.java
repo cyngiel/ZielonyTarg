@@ -38,7 +38,7 @@ public class DatabaseTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_database_test);
 
-        fAuth = FirebaseAuth.getInstance();
+/*        fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
         TextCategoryGet = findViewById(R.id.text_category_get);
@@ -104,7 +104,7 @@ public class DatabaseTestActivity extends AppCompatActivity {
                     TextCategoryGet.setText("Failed");
                 }
             }
-        });
+        });*/
 
     }
 }
