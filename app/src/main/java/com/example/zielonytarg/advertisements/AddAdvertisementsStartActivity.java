@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+import android.widget.Button;
+import com.example.zielonytarg.basicActivities.StartActivity;
 import com.example.zielonytarg.R;
 import com.example.zielonytarg.basicActivities.MainActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -17,11 +18,24 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
     private FloatingActionButton fabAdsStart;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
+    Button BtnReturn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_advertisements_start);
+
+
+        BtnReturn = findViewById(R.id.btn_return_2);
+
+        BtnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                startActivity(intent);
+            }
+        });
 
         linkResourcesToFields();
         firebaseInit();

@@ -95,15 +95,18 @@ public class LoginActivity extends AppCompatActivity {
                 addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                    Toast.makeText(LoginActivity.this, "Jestes zalogowany ;)", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), StartActivity.class));
-                    finish();
+
+                        Toast.makeText(LoginActivity.this, "Jestes zalogowany ;)", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), StartActivity.class));
+                        finish();
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(LoginActivity.this, "Cos poszlo nie tak :c", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
+
+                Toast.makeText(LoginActivity.this, "Cos poszlo nie tak :c", Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
             }
         });
     }
@@ -131,3 +134,4 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 }
+

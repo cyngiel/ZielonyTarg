@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".advertisements.AddAdvertisementsStartActivity"></activity>
+
         <activity android:name=".basicActivities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,12 +17,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".advertisements.AddAdvertisementsStartActivity"></activity>
+        <activity android:name=".basicActivities.LoginActivity"></activity>
+        <activity android:name=".basicActivities.RegisterActivity"></activity>
+        <activity android:name=".basicActivities.StartActivity"></activity>
+        <activity android:name=".basicActivities.MoreInfoActivity"></activity>
+        <activity android:name=".advertisements.AdvertismentsByCityActivity"></activity>
+        <activity android:name=".basicActivities.DatabaseTestActivity"></activity>
+        <activity android:name=".basicActivities.SearchActivity"></activity>
+        <activity android:name=".basicActivities.SearchProductActivity"></activity>
+        <activity android:name=".basicActivities.DetailsActivity"></activity>
+        <activity android:name=".basicActivities.DetailsAccountActivity"></activity>
+        <activity android:name=".advertisements.AddAdvertisementsStartActivity"></activity>
+
         <activity android:name=".basicActivities.LoginActivity" />
         <activity android:name=".basicActivities.RegisterActivity" />
         <activity android:name=".basicActivities.StartActivity" />
         <activity android:name=".basicActivities.MoreInfoActivity" />
         <activity android:name=".advertisements.AdvertismentsByCityActivity" />
         <activity android:name=".basicActivities.DatabaseTestActivity" />
+
     </application>
 
 </manifest>
