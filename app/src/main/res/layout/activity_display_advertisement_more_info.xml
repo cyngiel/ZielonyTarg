@@ -79,4 +79,13 @@
         android:text="Informacje o uzytkowniku: "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/disp_ad_opis" />
+
+    <Button
+        android:id="@+id/moreUserAdsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ogłoszenia tego użytkownika"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disp_ad_city" />
 </androidx.constraintlayout.widget.ConstraintLayout>

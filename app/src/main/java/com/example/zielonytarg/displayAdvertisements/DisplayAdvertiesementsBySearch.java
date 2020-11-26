@@ -110,7 +110,7 @@ public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
             String nazwa = ds.getString("nazwa");
             String cena = ds.getString("cena");
             String opis = ds.getString("opis");
-            String uid = ds.getString("uid");
+            String uid = ds.getString("userID");
 
             mLayout.addView(dnV.titleTextView(getApplicationContext(), nazwa), 3);
             mLayout.addView(dnV.priceofItem(getApplicationContext(), cena), 4);
@@ -142,7 +142,7 @@ public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
                             String nazwa = task.getResult().getString("nazwa");
                             String cena = task.getResult().getString("cena");
                             String opis = task.getResult().getString("opis");
-                            String uid = task.getResult().getString("uid");
+                            String uid = task.getResult().getString("userID");
 
                             mLayout.addView(dnV.titleTextView(getApplicationContext(), nazwa), 3);
                             mLayout.addView(dnV.priceofItem(getApplicationContext(), cena), 4);

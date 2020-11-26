@@ -18,7 +18,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class DisplayUserAdvertisements extends AppCompatActivity {
+public class DisplayMyUserAdvertisements extends AppCompatActivity {
 
     private GridLayout mLayout;
     DynamicViews dnV;
@@ -26,26 +26,28 @@ public class DisplayUserAdvertisements extends AppCompatActivity {
 
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
+    Task getSizeTask;
+
     String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_user_advertisements);
+        setContentView(R.layout.activity_display_my_user_advertisements);
 
         firebaseInit();
-        uid = getIntent().getExtras().getString("userID");
-        mLayout = findViewById(R.id.mylayout3);
+
+        mLayout = findViewById(R.id.mylayout);
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                fStore.collection("Users").document(uid).collection("Ads").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                getSizeTask = fStore.collection("Users").document(uid).collection("Ads").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         int i = task.getResult().size();
                         getUserAds(i);
-                        Toast.makeText(DisplayUserAdvertisements.this, "Liczba ogloszen: " + i, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DisplayMyUserAdvertisements.this, "Liczba ogloszen: " + i, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -61,7 +63,7 @@ public class DisplayUserAdvertisements extends AppCompatActivity {
             }
         }
         else
-            Toast.makeText(DisplayUserAdvertisements.this, "Nie masz żadnych ogłoszeń", Toast.LENGTH_SHORT).show();
+            Toast.makeText(DisplayMyUserAdvertisements.this, "Nie masz żadnych ogłoszeń", Toast.LENGTH_SHORT).show();
     }
 
     private DocumentReference getAd(int id){
@@ -71,7 +73,7 @@ public class DisplayUserAdvertisements extends AppCompatActivity {
 
     private void addNextAd(final DocumentReference df) {
         dnV = new DynamicViews(context);
-        //final String[] documentValues = new String[3]; //0-nazwa  1-cena   2-opis
+       //final String[] documentValues = new String[3]; //0-nazwa  1-cena   2-opis
 
         new Thread(new Runnable() {
             @Override
@@ -84,11 +86,11 @@ public class DisplayUserAdvertisements extends AppCompatActivity {
                         String cena =  task.getResult().getString("cena");
                         String opis =  task.getResult().getString("opis");
                         String miasto =  task.getResult().getString("miasto");
-                        String uid =  task.getResult().getString("userID");
+                        //String uid =  task.getResult().getString("userID");
 
                         mLayout.addView(dnV.titleTextView(getApplicationContext(), nazwa), 3);
                         mLayout.addView(dnV.priceofItem(getApplicationContext(), cena), 4);
-                        // mLayout.addView(dnV.descriptionTextView(getApplicationContext(), opis), 5);
+                       // mLayout.addView(dnV.descriptionTextView(getApplicationContext(), opis), 5);
                         Button moreInfo = dnV.moreInfoButton(getApplicationContext());
                         moreInfo.setOnClickListener(new DisplayAdMoreInfoOnClickListener(nazwa, opis, cena, miasto, uid, getApplicationContext()));
                         mLayout.addView(moreInfo, 5);
@@ -106,5 +108,6 @@ public class DisplayUserAdvertisements extends AppCompatActivity {
     void firebaseInit() {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+        uid = fAuth.getCurrentUser().getUid();
     }
 }

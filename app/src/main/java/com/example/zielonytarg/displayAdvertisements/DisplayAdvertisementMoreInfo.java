@@ -1,12 +1,16 @@
 package com.example.zielonytarg.displayAdvertisements;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zielonytarg.R;
+import com.example.zielonytarg.basicActivities.RegisterActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,6 +22,7 @@ public class DisplayAdvertisementMoreInfo extends AppCompatActivity {
 
     String nazwa, opis, cena, miasto, name, city, tel, uid;
     TextView disp_ad_nazwa, disp_ad_cena, disp_ad_opis, disp_ad_miasto, disp_ad_name, disp_ad_tel, disp_ad_city;
+    Button moreUserAdsBtn;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     Task getSizeTask;
@@ -31,11 +36,22 @@ public class DisplayAdvertisementMoreInfo extends AppCompatActivity {
         cena = getIntent().getExtras().getString("cena");
         opis = getIntent().getExtras().getString("opis");
         miasto = getIntent().getExtras().getString("miasto");
-        //uid = getIntent().getExtras().getString("uid");
+        uid = getIntent().getExtras().getString("userID");
 
         linkResToFields();
         firebaseInit();
         getUserInfo();
+
+        moreUserAdsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DisplayAdvertisementMoreInfo.this, DisplayUserAdvertisements.class);
+                Bundle b = new Bundle();
+                b.putString("userID", uid);
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -81,11 +97,12 @@ public class DisplayAdvertisementMoreInfo extends AppCompatActivity {
         disp_ad_name = findViewById(R.id.disp_ad_name);
         disp_ad_tel = findViewById(R.id.disp_ad_tel);
         disp_ad_city = findViewById(R.id.disp_ad_city);
+        moreUserAdsBtn = findViewById(R.id.moreUserAdsBtn);
     }
 
     void firebaseInit() {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        uid = fAuth.getUid();
+        //uid = fAuth.getUid();
     }
 }

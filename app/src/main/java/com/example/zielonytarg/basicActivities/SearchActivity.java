@@ -37,7 +37,6 @@ public class SearchActivity extends AppCompatActivity {
                 b.putString("category", "soki");
                 intent.putExtras(b);
                 startActivity(intent);
-                startActivity(intent);
             }
         });
 
@@ -49,7 +48,6 @@ public class SearchActivity extends AppCompatActivity {
                 b.putString("city", city);
                 b.putString("category", "warzywa");
                 intent.putExtras(b);
-                startActivity(intent);
                 startActivity(intent);
             }
         });
@@ -63,7 +61,6 @@ public class SearchActivity extends AppCompatActivity {
                 b.putString("category", "ryby");
                 intent.putExtras(b);
                 startActivity(intent);
-                startActivity(intent);
             }
         });
 
@@ -75,7 +72,6 @@ public class SearchActivity extends AppCompatActivity {
                 b.putString("city", city);
                 b.putString("category", "miody");
                 intent.putExtras(b);
-                startActivity(intent);
                 startActivity(intent);
             }
         });
@@ -89,7 +85,6 @@ public class SearchActivity extends AppCompatActivity {
                 b.putString("category", "mieso");
                 intent.putExtras(b);
                 startActivity(intent);
-                startActivity(intent);
             }
         });
 
@@ -101,7 +96,6 @@ public class SearchActivity extends AppCompatActivity {
                 b.putString("city", city);
                 b.putString("category", "bakalie");
                 intent.putExtras(b);
-                startActivity(intent);
                 startActivity(intent);
             }
         });
@@ -115,7 +109,6 @@ public class SearchActivity extends AppCompatActivity {
                 b.putString("category", "owoce");
                 intent.putExtras(b);
                 startActivity(intent);
-                startActivity(intent);
             }
         });
 
@@ -127,7 +120,6 @@ public class SearchActivity extends AppCompatActivity {
                 b.putString("city", city);
                 b.putString("category", "inne");
                 intent.putExtras(b);
-                startActivity(intent);
                 startActivity(intent);
             }
         });
