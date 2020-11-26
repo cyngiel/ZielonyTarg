@@ -1,10 +1,9 @@
-package com.example.zielonytarg.displayUserAds;
+package com.example.zielonytarg.displayAdvertisements;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.text.InputType;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class DynamicViews {
@@ -45,6 +44,17 @@ public class DynamicViews {
         textView.setText(" " + text + " ");
         textView.setMaxEms(8);
         return textView;
+    }
+
+    public Button moreInfoButton(Context context) {
+        final ViewGroup.LayoutParams lparams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        final Button button = new Button((context));
+        button.setLayoutParams(lparams);
+        button.setTextSize(20);
+        button.setTextColor(Color.BLACK);
+        button.setMaxEms(8);
+        button.setText("Wiecej");
+        return button;
     }
 
 }

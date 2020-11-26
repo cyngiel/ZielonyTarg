@@ -1,25 +1,24 @@
-package com.example.zielonytarg.displayUserAds;
+package com.example.zielonytarg.displayAdvertisements;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.Toast;
 
 import com.example.zielonytarg.R;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.concurrent.ExecutionException;
 
 public class DisplayUserAdvertisements extends AppCompatActivity {
 
@@ -85,12 +84,25 @@ public class DisplayUserAdvertisements extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
-                        mLayout.addView(dnV.titleTextView(getApplicationContext(), task.getResult().getString("nazwa")), 3);
-                        mLayout.addView(dnV.priceofItem(getApplicationContext(), task.getResult().getString("cena")), 4);
-                        mLayout.addView(dnV.descriptionTextView(getApplicationContext(), task.getResult().getString("opis")), 5);
+                        String nazwa =  task.getResult().getString("nazwa");
+                        String cena =  task.getResult().getString("cena");
+                        String opis =  task.getResult().getString("opis");
+                        String miasto =  task.getResult().getString("miasto");
+                        String uid =  task.getResult().getString("uid");
+
+                        mLayout.addView(dnV.titleTextView(getApplicationContext(), nazwa), 3);
+                        mLayout.addView(dnV.priceofItem(getApplicationContext(), cena), 4);
+                       // mLayout.addView(dnV.descriptionTextView(getApplicationContext(), opis), 5);
+                        Button moreInfo = dnV.moreInfoButton(getApplicationContext());
+                        moreInfo.setOnClickListener(new DisplayAdMoreInfoOnClickListener(nazwa, opis, cena, miasto, uid, getApplicationContext()));
+                        mLayout.addView(moreInfo, 5);
                     }
+
+
                 });
             }
+
+
         }).start();
 
     }

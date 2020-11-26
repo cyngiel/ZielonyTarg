@@ -9,11 +9,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/btn_owoce"
+            android:id="@+id/search_btn_owoce"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
@@ -21,19 +22,86 @@
             android:textColor="#808080"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn_warzywa"
+            app:layout_constraintStart_toEndOf="@+id/search_btn_warzywa"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <Button
-            android:id="@+id/btn_warzywa"
+            android:id="@+id/search_btn_warzywa"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:text="Warzywa"
             android:textColor="#808080"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/search_btn_owoce"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <Button
+            android:id="@+id/search_btn_ryby"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="Ryby"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_btn_mieso"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_owoce" />
+
+        <Button
+            android:id="@+id/search_btn_mieso"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="Mięso"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/search_btn_ryby"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_warzywa" />
+
+        <Button
+            android:id="@+id/search_btn_soki"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="soki"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/search_btn_miody"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_mieso" />
+
+        <Button
+            android:id="@+id/search_btn_miody"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="Miody"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_btn_soki"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_ryby" />
+
+        <Button
+            android:id="@+id/search_btn_bakalie"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="Bakalie"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/search_btn_inne"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_soki" />
+
+        <Button
+            android:id="@+id/search_btn_inne"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="Inne"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_btn_bakalie"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_miody" />
 
         <TextView
             android:id="@+id/textView6"
