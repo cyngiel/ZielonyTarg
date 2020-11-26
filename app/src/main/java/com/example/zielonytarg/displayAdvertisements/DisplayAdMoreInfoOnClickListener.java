@@ -29,7 +29,7 @@ public class DisplayAdMoreInfoOnClickListener implements View.OnClickListener {
         b.putString("opis", opis);
         b.putString("cena", cena);
         b.putString("miasto", miasto);
-        b.putString("uid", uid);
+        b.putString("userID", uid);
         intent.putExtras(b);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);

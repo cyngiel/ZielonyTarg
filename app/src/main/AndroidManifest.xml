@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".displayAdvertisements.DisplayAdvertisementMoreInfo"></activity>
+        <activity android:name=".displayAdvertisements.DisplayUserAdvertisements"></activity>
+        <activity android:name=".displayAdvertisements.DisplayAdvertisementMoreInfo" />
         <activity android:name=".displayAdvertisements.DisplayAdvertiesementsBySearch" />
-        <activity android:name=".displayAdvertisements.DisplayUserAdvertisements" />
+        <activity android:name=".displayAdvertisements.DisplayMyUserAdvertisements" />
         <activity android:name=".basicActivities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

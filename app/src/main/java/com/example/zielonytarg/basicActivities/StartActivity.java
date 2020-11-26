@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.zielonytarg.R;
 import com.example.zielonytarg.advertisements.AddAdvertisementsStartActivity;
 import com.example.zielonytarg.advertisements.AdvertismentsByCityActivity;
-import com.example.zielonytarg.displayAdvertisements.DisplayUserAdvertisements;
+import com.example.zielonytarg.displayAdvertisements.DisplayMyUserAdvertisements;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class StartActivity extends AppCompatActivity {
@@ -86,7 +86,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-                Intent intent = new Intent(getApplicationContext(), DisplayUserAdvertisements.class);
+                Intent intent = new Intent(getApplicationContext(), DisplayMyUserAdvertisements.class);
                 startActivity(intent);
                 }
                 else{
