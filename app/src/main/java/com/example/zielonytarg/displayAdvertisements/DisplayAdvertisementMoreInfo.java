@@ -31,7 +31,7 @@ public class DisplayAdvertisementMoreInfo extends AppCompatActivity {
         cena = getIntent().getExtras().getString("cena");
         opis = getIntent().getExtras().getString("opis");
         miasto = getIntent().getExtras().getString("miasto");
-        uid = getIntent().getExtras().getString("uid");
+        //uid = getIntent().getExtras().getString("uid");
 
         linkResToFields();
         firebaseInit();
@@ -86,5 +86,6 @@ public class DisplayAdvertisementMoreInfo extends AppCompatActivity {
     void firebaseInit() {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+        uid = fAuth.getUid();
     }
 }

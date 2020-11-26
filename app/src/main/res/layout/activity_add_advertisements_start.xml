@@ -29,6 +29,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addTitleText" />
 
+        <Spinner
+            android:id="@+id/addAdSpinnerCity"
+            android:layout_width="134dp"
+            android:layout_height="41dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addCenaText" />
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/addCenaText"
             android:layout_width="134dp"
@@ -45,7 +53,7 @@
             android:hint="Opis"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addCenaText" />
+            app:layout_constraintTop_toBottomOf="@+id/addAdSpinnerCity" />
 
         <TextView
             android:id="@+id/textView5"
@@ -55,7 +63,7 @@
             android:text="Opis"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView51" />
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <TextView
             android:id="@+id/textView46"
@@ -100,6 +108,16 @@
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="170dp"
+            android:layout_height="41dp"
+            android:gravity="center"
+            android:text="Miasto"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
         <Button
             android:id="@+id/btnDetailsAccountReturn"

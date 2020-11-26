@@ -32,8 +32,6 @@ public class StartActivity extends AppCompatActivity {
         BtnAddAdvertisements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                //startActivity(intent);
 
                 if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                     startActivity(new Intent(getApplicationContext(), AddAdvertisementsStartActivity.class));
@@ -73,16 +71,28 @@ public class StartActivity extends AppCompatActivity {
         BtnMojeKonto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                 Intent intent = new Intent(getApplicationContext(), DetailsAccountActivity.class);
                 startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
         btn_disp_user_advertisements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                 Intent intent = new Intent(getApplicationContext(), DisplayUserAdvertisements.class);
                 startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

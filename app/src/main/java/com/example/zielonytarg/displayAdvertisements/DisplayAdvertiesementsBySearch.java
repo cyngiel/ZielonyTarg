@@ -18,6 +18,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.List;
+
 public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
 
     String city, category;
@@ -46,7 +48,7 @@ public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
 
     }
 
-    private void getUserSize(){
+    private void getUserSize() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -54,55 +56,71 @@ public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         int i = task.getResult().size();
-                        getUsers(i);
+                        getDocs(i);
                         //Toast.makeText(DisplayAdvertiesementsBySearch.this, "Liczba ogloszen: " + i, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         }).start();
-    }
-
-    private void getUsers(int size) {
-
-        if(size > 0){
-            for(int i = 0; i < size; i++){
-                getUserAdsSize(i);
-            }
-        } else
-            Toast.makeText(DisplayAdvertiesementsBySearch.this, "Brak ogłoszeń :c", Toast.LENGTH_SHORT).show();
-
-    }
-
-    private void getUserAdsSize(final int id) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                getSizeTask = fStore.collection("Users").document(String.valueOf(String.valueOf(id))).collection("Ads").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        int i = task.getResult().size();
-                        getUserAds(i);
-                        //Toast.makeText(DisplayAdvertiesementsBySearch.this, "Liczba ogloszen: " + i, Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        }).start();
-    }
-
-    private void getUserAds(int size) {
-        DocumentReference df;
-        if (size > 0) {
-            for (int i = 0; i < size; i++) {
-                df = getAd(i);
-                addNextAd(df);
-            }
-        } else
-            Toast.makeText(DisplayAdvertiesementsBySearch.this, "Brak ogłoszeń", Toast.LENGTH_SHORT).show();
     }
 
     private DocumentReference getAd(int id) {
+
         DocumentReference df = fStore.collection("Users").document(String.valueOf(id)).collection("Ads").document(Integer.toString(id));
         return df;
+    }
+
+    private void getDocs(final int size) {
+        fStore.collection("Users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                List<DocumentSnapshot> list = task.getResult().getDocuments();
+
+                for (int i = 0; i < size; i++) {
+                    getAds(list.get(i));
+                }
+
+            }
+        });
+    }
+
+    private void getAds(final DocumentSnapshot ds){
+
+        ds.getReference().collection("Ads").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                List<DocumentSnapshot> list = task.getResult().getDocuments();
+
+                for (int i = 0; i < list.size(); i++) {
+                    addNextAd(list.get(i));
+                }
+
+            }
+        });
+    }
+
+    private void addNextAd(final DocumentSnapshot ds) {
+        dnV = new DynamicViews(context);
+
+        String miasto = ds.getString("miasto");
+        String kategoria = ds.getString("kategoria");
+        //Toast.makeText(DisplayAdvertiesementsBySearch.this, miasto + " " + kategoria, Toast.LENGTH_SHORT).show();
+
+        if (city.equalsIgnoreCase(miasto) && category.equalsIgnoreCase(kategoria)) {
+            String nazwa = ds.getString("nazwa");
+            String cena = ds.getString("cena");
+            String opis = ds.getString("opis");
+            String uid = ds.getString("uid");
+
+            mLayout.addView(dnV.titleTextView(getApplicationContext(), nazwa), 3);
+            mLayout.addView(dnV.priceofItem(getApplicationContext(), cena), 4);
+            // mLayout.addView(dnV.descriptionTextView(getApplicationContext(), opis), 5);
+            Button moreInfo = dnV.moreInfoButton(getApplicationContext());
+            moreInfo.setOnClickListener(new DisplayAdMoreInfoOnClickListener(nazwa, opis, cena, miasto, uid, getApplicationContext()));
+            mLayout.addView(moreInfo, 5);
+
+        }
+
     }
 
     private void addNextAd(final DocumentReference df) {

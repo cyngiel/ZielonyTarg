@@ -34,7 +34,7 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
     FirebaseFirestore fStore;
     Button BtnReturn;
     EditText AddTitleText, AddCenaText, AddOpisText;
-    Spinner addCategorySpinner;
+    Spinner addCategorySpinner, addAdSpinnerCity;
     String uid;
     Task getSizeTask;
 
@@ -78,7 +78,7 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
         addAd.put("kategoria", categoryValueFromSpinner);
         addAd.put("cena", AddCenaText.getText().toString());
         addAd.put("opis", AddOpisText.getText().toString());
-        addAd.put("miasto", addCategorySpinner.getSelectedItem().toString());
+        addAd.put("miasto", addAdSpinnerCity.getSelectedItem().toString());
         addAd.put("userID", uid);
 
         DocumentReference df = fStore.collection("Users").document(uid);
@@ -116,6 +116,10 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categoires_spinner_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         addCategorySpinner.setAdapter(adapter);
+
+        adapter = ArrayAdapter.createFromResource(this, R.array.city_spinner_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        addAdSpinnerCity.setAdapter(adapter);
     }
 
     void linkResourcesToFields(){
@@ -125,6 +129,7 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
         AddTitleText = findViewById(R.id.addTitleText);
         AddCenaText = findViewById(R.id.addCenaText);
         AddOpisText = findViewById(R.id.addOpisText);
+        addAdSpinnerCity = findViewById(R.id.addAdSpinnerCity);
     }
 
     void firebaseInit() {
