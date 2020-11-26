@@ -92,13 +92,6 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
         BtnReturn = findViewById(R.id.btnDetailsAccountReturn);
     }
 
-    void spinnerInit() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categoires_spinner_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        addCategorySpinner.setAdapter(adapter);
-
-    }
-
     void firebaseInit() {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
