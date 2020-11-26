@@ -55,17 +55,18 @@ public class DisplayUserAdvertisements extends AppCompatActivity {
                 });
             }
         }).start();
-
-
-
     }
 
     private void getUserAds(int size){
         DocumentReference df;
-        for(int i = 0; i < size; i++){
-            df = getAd(i);
-            addNextAd(df);
+        if(size > 0) {
+            for (int i = 0; i < size; i++) {
+                df = getAd(i);
+                addNextAd(df);
+            }
         }
+        else
+            Toast.makeText(DisplayUserAdvertisements.this, "Nie masz żadnych ogłoszeń", Toast.LENGTH_SHORT).show();
     }
 
     private DocumentReference getAd(int id){
@@ -80,22 +81,9 @@ public class DisplayUserAdvertisements extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-/*                df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        documentValues[0] = documentSnapshot.getString("nazwa");
-                        documentValues[1] = documentSnapshot.getString("cena");
-                        documentValues[2] = documentSnapshot.getString("opis");
-                    }
-                });
-                */
                 df.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        /*documentValues[0] = task.getResult().getString("nazwa");
-                        documentValues[1] = task.getResult().getString("cena");
-                        documentValues[2] = task.getResult().getString("opis");*/
-
 
                         mLayout.addView(dnV.titleTextView(getApplicationContext(), task.getResult().getString("nazwa")), 3);
                         mLayout.addView(dnV.priceofItem(getApplicationContext(), task.getResult().getString("cena")), 4);
