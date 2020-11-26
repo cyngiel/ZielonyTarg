@@ -41,12 +41,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/addOpisText"
             android:layout_width="134dp"
-            android:layout_height="41dp"
+            android:layout_height="wrap_content"
             android:hint="Opis"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addCenaText" />
-
+            app:layout_constraintTop_toBottomOf="@+id/AddCenaText" />
 
         <TextView
             android:id="@+id/textView5"

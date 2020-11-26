@@ -17,15 +17,15 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        BtnOwoce = findViewById(R.id.btn_warzywa);
+       // BtnOwoce = findViewById(R.id.btn_warzywa);
 
-        BtnOwoce.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
-                startActivity(intent);
-            }
-        });
+      //  BtnOwoce.setOnClickListener(new View.OnClickListener() {
+      //      @Override
+     //       public void onClick(View v) {
+      //          Intent intent = new Intent(getApplicationContext(), SearchProductActivity.class);
+     //           startActivity(intent);
+   //         }
+     //   });
 
 
     }

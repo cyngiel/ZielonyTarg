@@ -36,8 +36,9 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_advertisements_start);
-
-        linkResourcesToFields();
+        linkResourcesToFields(); //tutaj są wszystkie rzeczy typu findViewById( );
+        firebaseInit();
+        floatingButtonListener();
         spinnerInit();
 
         BtnReturn.setOnClickListener(new View.OnClickListener() {
@@ -64,9 +65,6 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        firebaseInit();
-        floatingButtonListener();
     }
 
 
@@ -92,6 +90,13 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
         fabAdsStart = findViewById(R.id.fabAdsStart);
         addCategorySpinner = findViewById(R.id.addAdSpinnerCategory);
         BtnReturn = findViewById(R.id.btnDetailsAccountReturn);
+    }
+
+    void spinnerInit() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categoires_spinner_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        addCategorySpinner.setAdapter(adapter);
+
     }
 
     void firebaseInit() {
