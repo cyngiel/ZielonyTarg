@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/text_product_name"
+            android:id="@+id/detailsAccountProductName"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -38,7 +38,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
         <TextView
-            android:id="@+id/text_producent"
+            android:id="@+id/detailsAccountProducent"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -73,14 +73,14 @@
             app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
         <TextView
-            android:id="@+id/text_cena"
+            android:id="@+id/detailsAccountTel"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text=" "
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_producent" />
+            app:layout_constraintTop_toBottomOf="@+id/detailsAccountProducent" />
 
         <TextView
             android:id="@+id/textView51"
@@ -94,17 +94,17 @@
             app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
         <TextView
-            android:id="@+id/text_odmiana"
+            android:id="@+id/detailsAccountCity"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text=" "
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_cena" />
+            app:layout_constraintTop_toBottomOf="@+id/detailsAccountTel" />
 
         <Button
-            android:id="@+id/btn_return_2"
+            android:id="@+id/btnDetailsAccountReturn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner"
@@ -127,7 +127,7 @@
             android:layout_marginRight="90dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_product_name"
+            app:layout_constraintTop_toBottomOf="@+id/detailsAccountProductName"
             app:srcCompat="@drawable/home" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

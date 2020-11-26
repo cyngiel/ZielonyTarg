@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.zielonytarg.R;
@@ -25,8 +27,9 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private TextInputEditText registerFullName, registerEmail, registerPassword;
+    private TextInputEditText registerFullName, registerEmail, registerPassword, registerTel;
     private Button registerSignUp;
+    private Spinner registerSpinnerCity;
 
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
@@ -38,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         linkResourcesToFields();
         firebaseInit();
+        spinnerInit();
 
         registerSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +124,10 @@ public class RegisterActivity extends AppCompatActivity {
                         userInfo.put("FullName", registerFullName.getText().toString());
                         userInfo.put("Email", registerEmail.getText().toString());
                         userInfo.put("Password", registerPassword.getText().toString());
+                        userInfo.put("Tel", registerTel.getText().toString());
+                        String cityValueFromSpinner = registerSpinnerCity.getSelectedItem().toString();
+                        userInfo.put("City", cityValueFromSpinner);
+
 
                         DocumentReference df = fStore.collection("Users").document(user.getUid());
                         df.set(userInfo);
@@ -150,6 +158,14 @@ public class RegisterActivity extends AppCompatActivity {
         registerEmail = findViewById(R.id.registerEmail);
         registerPassword = findViewById(R.id.registerPassword);
         registerSignUp = findViewById(R.id.registerSignUp);
+        registerTel = findViewById(R.id.registerTel);
+        registerSpinnerCity = findViewById(R.id.registerSpinnerCity);
+    }
+
+    void spinnerInit() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.city_spinner_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        registerSpinnerCity.setAdapter(adapter);
     }
 
 }

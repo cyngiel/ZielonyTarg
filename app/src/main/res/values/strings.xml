@@ -19,5 +19,13 @@
         <item>miody</item>
         <item>bakalie</item>
     </string-array>
+    <string-array name="city_spinner_array">
+        <item>Warszawa</item>
+        <item>Katowice</item>
+        <item>Lodz</item>
+        <item>Bydgoszcz</item>
+        <item>Gdynia</item>
+        <item>Krakow</item>
+    </string-array>
 </resources>
 
