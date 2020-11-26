@@ -23,7 +23,7 @@ public class DetailsAccountActivity extends AppCompatActivity {
     TextView detailsAccountProductName, detailsAccountProducent, detailsAccountTel, detailsAccountCity;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    Button btnDetailsAccountReturn;
+    Button btnDetailsAccountReturn, btnDetailsAccountLogout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,6 +66,16 @@ public class DetailsAccountActivity extends AppCompatActivity {
             }
         });
 
+        btnDetailsAccountLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fAuth.signOut();
+                Toast.makeText(DetailsAccountActivity.this, "Wylogowano", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+            }
+        });
+
     }
 
     void linkResourcesToFields(){
@@ -74,6 +84,7 @@ public class DetailsAccountActivity extends AppCompatActivity {
         detailsAccountTel = findViewById(R.id.detailsAccountTel);
         detailsAccountCity = findViewById(R.id.detailsAccountCity);
         btnDetailsAccountReturn = findViewById(R.id.btnDetailsAccountReturn);
+        btnDetailsAccountLogout = findViewById(R.id.btnDetailsAccountReturn);
     }
 
     void firebaseInit() {

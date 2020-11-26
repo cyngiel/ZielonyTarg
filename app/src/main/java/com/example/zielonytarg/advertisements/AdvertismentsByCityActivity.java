@@ -25,17 +25,21 @@ public class AdvertismentsByCityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advertisments_by_city);
 
-        BtnWarszawa = findViewById(R.id.btn_warszawa);
-        BtnKatowice = findViewById(R.id.btn_katowice);
-        BtnLodz = findViewById(R.id.btn_lodz);
-        BtnBydgoszcz = findViewById(R.id.btn_bydgoszcz);
-        BtnGdynia = findViewById(R.id.btn_gdynia);
-        BtnKrakow = findViewById(R.id.btn_krakow);
+        likResToFields();
+        initButtonsListeners();
 
+
+    }
+
+    private void initButtonsListeners() {
         BtnWarszawa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                Bundle b = new Bundle();
+                b.putString("city", "warszawa");
+                intent.putExtras(b);
+                startActivity(intent);
                 startActivity(intent);
             }
         });
@@ -44,6 +48,10 @@ public class AdvertismentsByCityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                Bundle b = new Bundle();
+                b.putString("city", "katowice");
+                intent.putExtras(b);
+                startActivity(intent);
                 startActivity(intent);
             }
         });
@@ -52,6 +60,10 @@ public class AdvertismentsByCityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                Bundle b = new Bundle();
+                b.putString("city", "lodz");
+                intent.putExtras(b);
+                startActivity(intent);
                 startActivity(intent);
             }
         });
@@ -60,6 +72,10 @@ public class AdvertismentsByCityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                Bundle b = new Bundle();
+                b.putString("city", "bydgoszcz");
+                intent.putExtras(b);
+                startActivity(intent);
                 startActivity(intent);
             }
         });
@@ -68,6 +84,10 @@ public class AdvertismentsByCityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                Bundle b = new Bundle();
+                b.putString("city", "gdynia");
+                intent.putExtras(b);
+                startActivity(intent);
                 startActivity(intent);
             }
         });
@@ -76,10 +96,21 @@ public class AdvertismentsByCityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                Bundle b = new Bundle();
+                b.putString("city", "krakow");
+                intent.putExtras(b);
                 startActivity(intent);
             }
         });
+    }
 
+    void likResToFields(){
+        BtnWarszawa = findViewById(R.id.btn_warszawa);
+        BtnKatowice = findViewById(R.id.btn_katowice);
+        BtnLodz = findViewById(R.id.btn_lodz);
+        BtnBydgoszcz = findViewById(R.id.btn_bydgoszcz);
+        BtnGdynia = findViewById(R.id.btn_gdynia);
+        BtnKrakow = findViewById(R.id.btn_krakow);
     }
 }
 

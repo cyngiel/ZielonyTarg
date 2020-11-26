@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.zielonytarg.R;
 import com.example.zielonytarg.advertisements.AddAdvertisementsStartActivity;
 import com.example.zielonytarg.advertisements.AdvertismentsByCityActivity;
-import com.example.zielonytarg.displayUserAds.DisplayUserAdvertisements;
+import com.example.zielonytarg.displayAdvertisements.DisplayUserAdvertisements;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class StartActivity extends AppCompatActivity {

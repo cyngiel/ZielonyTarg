@@ -1,8 +1,5 @@
 package com.example.zielonytarg.basicActivities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,16 +8,21 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.zielonytarg.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     // validation & register ////////////////////////////////////////////////////
-    public void registerButtonCreateAccountHandle(View v){
+    public void registerButtonCreateAccountHandle(View v) {
         confirmInput(v);
     }
 
@@ -86,8 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
         if (passwordInput.isEmpty()) {
             registerPassword.setError("Field can't be empty");
             return false;
-        }
-        else if (passwordInput.length() < 5) {
+        } else if (passwordInput.length() < 5) {
             registerFullName.setError("Password too short");
             return false;
         } else {
@@ -112,8 +113,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     // create user
-    private void createUser(){
-        fAuth.createUserWithEmailAndPassword(registerEmail.getText().toString(),registerPassword.getText().toString()).
+    private void createUser() {
+        fAuth.createUserWithEmailAndPassword(registerEmail.getText().toString(), registerPassword.getText().toString()).
                 addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
@@ -128,10 +129,8 @@ public class RegisterActivity extends AppCompatActivity {
                         String cityValueFromSpinner = registerSpinnerCity.getSelectedItem().toString();
                         userInfo.put("City", cityValueFromSpinner);
 
-
                         DocumentReference df = fStore.collection("Users").document(user.getUid());
                         df.set(userInfo);
-                        df.collection("Ads").document().set(userInfo);
 
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();
@@ -148,7 +147,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     // on start init //////////////////////////////////////////////////////////////
 
-    void firebaseInit(){
+    void firebaseInit() {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
     }

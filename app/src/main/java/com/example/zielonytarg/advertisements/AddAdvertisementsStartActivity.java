@@ -14,8 +14,6 @@ import android.widget.Toast;
 
 import com.example.zielonytarg.basicActivities.StartActivity;
 import com.example.zielonytarg.R;
-import com.example.zielonytarg.basicActivities.MainActivity;
-import com.example.zielonytarg.displayUserAds.DisplayUserAdvertisements;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -46,7 +44,7 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_advertisements_start);
         linkResourcesToFields(); //tutaj są wszystkie rzeczy typu findViewById( );
         firebaseInit();
-        floatingButtonListener();
+        //floatingButtonListener();
         spinnerInit();
 
         BtnReturn.setOnClickListener(new View.OnClickListener() {
@@ -80,11 +78,11 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
         addAd.put("kategoria", categoryValueFromSpinner);
         addAd.put("cena", AddCenaText.getText().toString());
         addAd.put("opis", AddOpisText.getText().toString());
-
-        String no = Integer.toString(i);
+        addAd.put("miasto", addCategorySpinner.getSelectedItem().toString());
+        addAd.put("userID", uid);
 
         DocumentReference df = fStore.collection("Users").document(uid);
-        df.collection("Ads").document(no).set(addAd).addOnCompleteListener(new OnCompleteListener<Void>() {
+        df.collection("Ads").document(String.valueOf(i)).set(addAd).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(AddAdvertisementsStartActivity.this, "Dodano ogłoszenie", Toast.LENGTH_SHORT).show();
@@ -102,7 +100,7 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
     }
 
 
-    void floatingButtonListener(){
+/*    void floatingButtonListener(){
         FloatingActionButton fab = findViewById(R.id.fabAdsStart);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,7 +110,7 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
                 finish();
             }
         });
-    }
+    }*/
 
     void spinnerInit() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categoires_spinner_array, android.R.layout.simple_spinner_item);
@@ -121,7 +119,7 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
     }
 
     void linkResourcesToFields(){
-        fabAdsStart = findViewById(R.id.fabAdsStart);
+        //fabAdsStart = findViewById(R.id.fabAdsStart);
         addCategorySpinner = findViewById(R.id.addAdSpinnerCategory);
         BtnReturn = findViewById(R.id.btnDetailsAccountReturn);
         AddTitleText = findViewById(R.id.addTitleText);

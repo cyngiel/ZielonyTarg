@@ -18,6 +18,7 @@
         <item>soki</item>
         <item>miody</item>
         <item>bakalie</item>
+        <item>inne</item>
     </string-array>
     <string-array name="city_spinner_array">
         <item>Warszawa</item>

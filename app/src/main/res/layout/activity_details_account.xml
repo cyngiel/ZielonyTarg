@@ -104,6 +104,20 @@
             app:layout_constraintTop_toBottomOf="@+id/detailsAccountTel" />
 
         <Button
+            android:id="@+id/btnDetailsAccountLogout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:text="-> Wyloguj"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/btnDetailsAccountReturn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
             android:id="@+id/btnDetailsAccountReturn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
