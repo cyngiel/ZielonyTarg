@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:text="opis"
             android:padding="10dp"/>
+        
 
     </GridLayout>
 </LinearLayout>

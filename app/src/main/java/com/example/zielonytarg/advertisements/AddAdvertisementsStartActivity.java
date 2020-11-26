@@ -1,5 +1,6 @@
 package com.example.zielonytarg.advertisements;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,11 +15,16 @@ import android.widget.Toast;
 import com.example.zielonytarg.basicActivities.StartActivity;
 import com.example.zielonytarg.R;
 import com.example.zielonytarg.basicActivities.MainActivity;
+import com.example.zielonytarg.displayUserAds.DisplayUserAdvertisements;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +37,8 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
     Button BtnReturn;
     EditText AddTitleText, AddCenaText, AddOpisText;
     Spinner addCategorySpinner;
+    String uid;
+    Task getSizeTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,23 +54,49 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseUser user = fAuth.getCurrentUser();
 
-                AddTitleText = findViewById(R.id.addTitleText);
-                AddCenaText = findViewById(R.id.addCenaText);
-                AddOpisText = findViewById(R.id.addOpisText);
+                uid = user.getUid();
 
-                Map<String, Object> addAd = new HashMap<>();
-                addAd.put("Title", AddTitleText.getText().toString());
-                String categoryValueFromSpinner = addCategorySpinner.getSelectedItem().toString();
-                addAd.put("Category", categoryValueFromSpinner);
-                addAd.put("Price", AddCenaText.getText().toString());
-                addAd.put("Description", AddOpisText.getText().toString());
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        getSizeTask = fStore.collection("Users").document(uid).collection("Ads").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                int i = task.getResult().size();
+                                addUserAds(i);
+                            }
+                        });
+                    }
+                }).start();
 
-                DocumentReference df = fStore.collection("Users").document(user.getUid());
-                df.collection("Ads").document().set(addAd);
+            }
+        });
+    }
 
-                Toast.makeText(AddAdvertisementsStartActivity.this, "Advertisements Created", Toast.LENGTH_SHORT).show();
+    private void addUserAds(int i) {
+        Map<String, Object> addAd = new HashMap<>();
+        addAd.put("nazwa", AddTitleText.getText().toString());
+        String categoryValueFromSpinner = addCategorySpinner.getSelectedItem().toString();
+        addAd.put("kategoria", categoryValueFromSpinner);
+        addAd.put("cena", AddCenaText.getText().toString());
+        addAd.put("opis", AddOpisText.getText().toString());
+
+        String no = Integer.toString(i);
+
+        DocumentReference df = fStore.collection("Users").document(uid);
+        df.collection("Ads").document(no).set(addAd).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(AddAdvertisementsStartActivity.this, "Dodano ogłoszenie", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
                 startActivity(intent);
+                finish();
+            }
+        })
+        .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(AddAdvertisementsStartActivity.this, "Błąd dodawania ogłoszenia", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -90,6 +124,9 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
         fabAdsStart = findViewById(R.id.fabAdsStart);
         addCategorySpinner = findViewById(R.id.addAdSpinnerCategory);
         BtnReturn = findViewById(R.id.btnDetailsAccountReturn);
+        AddTitleText = findViewById(R.id.addTitleText);
+        AddCenaText = findViewById(R.id.addCenaText);
+        AddOpisText = findViewById(R.id.addOpisText);
     }
 
     void firebaseInit() {
