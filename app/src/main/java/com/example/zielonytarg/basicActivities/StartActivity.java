@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.zielonytarg.R;
 import com.example.zielonytarg.advertisements.AddAdvertisementsStartActivity;
 import com.example.zielonytarg.advertisements.AdvertismentsByCityActivity;
+import com.example.zielonytarg.displayUserAds.DisplayUserAdvertisements;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class StartActivity extends AppCompatActivity {
@@ -19,17 +20,14 @@ public class StartActivity extends AppCompatActivity {
     Button BtnFindAdvertisements;
     Button BtnDatabaseTest;
     Button BtnMojeKonto;
+    Button btn_disp_user_advertisements;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        BtnAddAdvertisements = findViewById(R.id.btn_add_advertisements);
-        BtnMoreInfo = findViewById(R.id.btn_more_info);
-        BtnFindAdvertisements = findViewById(R.id.btn_find_advertisements);
-        BtnDatabaseTest = findViewById(R.id.btn_database_test);
-        BtnMojeKonto = findViewById(R.id.btn_moje_konto);
+        linkResourcesToFields();
 
         BtnAddAdvertisements.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,5 +77,22 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btn_disp_user_advertisements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DisplayUserAdvertisements.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void linkResourcesToFields() {
+        BtnAddAdvertisements = findViewById(R.id.btn_add_advertisements);
+        BtnMoreInfo = findViewById(R.id.btn_more_info);
+        BtnFindAdvertisements = findViewById(R.id.btn_find_advertisements);
+        BtnDatabaseTest = findViewById(R.id.btn_database_test);
+        BtnMojeKonto = findViewById(R.id.btn_moje_konto);
+        btn_disp_user_advertisements = findViewById(R.id.btn_disp_user_advertisements);
     }
 }

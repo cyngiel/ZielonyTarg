@@ -79,7 +79,7 @@ public class DatabaseTestActivity extends AppCompatActivity {
 
         db.collection("Users").document(user.getUid())
                 .set(data, SetOptions.merge());
-        
+
 
         //CollectionReference cities = db.collection("cities");
 

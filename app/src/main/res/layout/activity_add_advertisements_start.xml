@@ -13,31 +13,40 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText3"
+            android:id="@+id/addTitleText"
             android:layout_width="134dp"
             android:layout_height="wrap_content"
-            android:hint="Opis"
+            android:hint="Tytuł"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+            app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+        <Spinner
+            android:id="@+id/addCategorySpinner"
+            android:layout_width="134dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addTitleText" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText2"
+            android:id="@+id/AddCenaText"
             android:layout_width="134dp"
             android:layout_height="wrap_content"
             android:hint="Cena"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/addCategorySpinner" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText"
+            android:id="@+id/addOpisText"
             android:layout_width="134dp"
             android:layout_height="wrap_content"
-            android:hint="Kategoria"
+            android:hint="Opis"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/AddCenaText" />
+
 
         <TextView
             android:id="@+id/textView5"
@@ -105,15 +114,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
-            android:layout_width="134dp"
-            android:layout_height="wrap_content"
-            android:hint="Tytuł"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

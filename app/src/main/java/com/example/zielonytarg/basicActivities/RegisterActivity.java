@@ -16,6 +16,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -122,6 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         DocumentReference df = fStore.collection("Users").document(user.getUid());
                         df.set(userInfo);
+                        df.collection("Ads").document().set(userInfo);
 
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();

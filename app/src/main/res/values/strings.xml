@@ -9,7 +9,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string-array name="categoires">
+    <string-array name="categoires_spinner_array">
         <item>owoce</item>
         <item>warzywa</item>
         <item>nabial</item>

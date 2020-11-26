@@ -19,17 +19,9 @@
             android:background="#FFFFFF"
             android:text="Owoce"
             android:textColor="#808080"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
-
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="178dp"
-            android:layout_height="162dp"
-            android:layout_marginTop="28dp"
-            android:contentDescription="@home_picture"
-            android:src="@drawable/home"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_warzywa"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <Button
@@ -39,8 +31,9 @@
             android:background="#FFFFFF"
             android:text="Warzywa"
             android:textColor="#808080"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <TextView
             android:id="@+id/textView6"
@@ -54,16 +47,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="178dp"
-            android:layout_height="162dp"
-            android:layout_marginTop="28dp"
-            android:contentDescription="@home_picture"
-            android:src="@drawable/home"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

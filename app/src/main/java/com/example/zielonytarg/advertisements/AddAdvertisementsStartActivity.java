@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+
 import com.example.zielonytarg.basicActivities.StartActivity;
 import com.example.zielonytarg.R;
 import com.example.zielonytarg.basicActivities.MainActivity;
@@ -19,6 +22,7 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     Button BtnReturn;
+    Spinner addCategorySpinner;
 
 
     @Override
@@ -26,8 +30,10 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_advertisements_start);
 
-
-        BtnReturn = findViewById(R.id.btn_return_2);
+        linkResourcesToFields(); //tutaj są wszystkie rzeczy typu findViewById( );
+        firebaseInit();
+        floatingButtonListener();
+        spinnerInit();
 
         BtnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,10 +42,6 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        linkResourcesToFields();
-        firebaseInit();
-        floatingButtonListener();
     }
 
 
@@ -57,6 +59,14 @@ public class AddAdvertisementsStartActivity extends AppCompatActivity {
 
     void linkResourcesToFields(){
         fabAdsStart = findViewById(R.id.fabAdsStart);
+        addCategorySpinner = findViewById(R.id.addCategorySpinner);
+        BtnReturn = findViewById(R.id.btn_return_2);
+    }
+
+    void spinnerInit() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categoires_spinner_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        addCategorySpinner.setAdapter(adapter);
     }
 
     void firebaseInit() {
