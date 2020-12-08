@@ -1,6 +1,7 @@
 package com.example.zielonytarg.basicActivities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,8 @@ public class MoreInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_more_info);
 
         BtnReturn = findViewById(R.id.btn_return);
+        //BtnReturn.setBackgroundColor(0xC0C0C0);
+        //BtnReturn.setTextColor(Color.parseColor("#C0C0C0"));
 
         BtnReturn.setOnClickListener(new View.OnClickListener() {
             @Override

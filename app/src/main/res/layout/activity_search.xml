@@ -19,11 +19,12 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:text="Owoce"
-            android:textColor="#808080"
+            android:textColor="#0C0C0C"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/search_btn_warzywa"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.18" />
 
         <Button
             android:id="@+id/search_btn_warzywa"
@@ -31,19 +32,21 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:text="Warzywa"
-            android:textColor="#808080"
+            android:textColor="#0C0C0C"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/search_btn_owoce"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.182" />
 
         <Button
             android:id="@+id/search_btn_ryby"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:background="#FFFFFF"
             android:text="Ryby"
-            android:layout_marginTop="16dp"
+            android:textColor="#0C0C0C"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/search_btn_mieso"
             app:layout_constraintTop_toBottomOf="@+id/search_btn_owoce" />
@@ -52,9 +55,10 @@
             android:id="@+id/search_btn_mieso"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:background="#FFFFFF"
             android:text="Mięso"
-            android:layout_marginTop="16dp"
+            android:textColor="#0C0C0C"
             app:layout_constraintEnd_toStartOf="@+id/search_btn_ryby"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_btn_warzywa" />
@@ -63,9 +67,10 @@
             android:id="@+id/search_btn_soki"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:background="#FFFFFF"
             android:text="soki"
-            android:layout_marginTop="16dp"
+            android:textColor="#0C0C0C"
             app:layout_constraintEnd_toStartOf="@+id/search_btn_miody"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_btn_mieso" />
@@ -74,9 +79,10 @@
             android:id="@+id/search_btn_miody"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:background="#FFFFFF"
             android:text="Miody"
-            android:layout_marginTop="16dp"
+            android:textColor="#0C0C0C"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/search_btn_soki"
             app:layout_constraintTop_toBottomOf="@+id/search_btn_ryby" />
@@ -85,9 +91,10 @@
             android:id="@+id/search_btn_bakalie"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="104dp"
             android:background="#FFFFFF"
             android:text="Bakalie"
-            android:layout_marginTop="16dp"
+            android:textColor="#0C0C0C"
             app:layout_constraintEnd_toStartOf="@+id/search_btn_inne"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_btn_soki" />
@@ -96,9 +103,10 @@
             android:id="@+id/search_btn_inne"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="104dp"
             android:background="#FFFFFF"
             android:text="Inne"
-            android:layout_marginTop="16dp"
+            android:textColor="#0C0C0C"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/search_btn_bakalie"
             app:layout_constraintTop_toBottomOf="@+id/search_btn_miody" />
@@ -115,6 +123,105 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="163dp"
+            app:layout_constraintBottom_toTopOf="@+id/search_btn_warzywa"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/warzywa" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="6dp"
+            app:layout_constraintBottom_toTopOf="@+id/search_btn_owoce"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:srcCompat="@drawable/owoce" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="22dp"
+            app:layout_constraintBottom_toTopOf="@+id/search_btn_mieso"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_warzywa"
+            app:srcCompat="@drawable/mieso" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="27dp"
+            app:layout_constraintBottom_toTopOf="@+id/search_btn_ryby"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_owoce"
+            app:srcCompat="@drawable/ryby" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/search_btn_soki"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_mieso"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/soki" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/search_btn_miody"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_ryby"
+            app:layout_constraintVertical_bias="0.321"
+            app:srcCompat="@drawable/miody" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/search_btn_bakalie"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_soki"
+            app:srcCompat="@drawable/bakalie" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/search_btn_inne"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn_miody"
+            app:srcCompat="@drawable/inne" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

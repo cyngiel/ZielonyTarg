@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FDFDFC"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -15,29 +16,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="#F6F8F2"
         android:columnCount="3"
         android:padding="10dp">
 
         <TextView
             android:id="@+id/textView9"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Nazwa"
-            android:padding="10dp"/>
+            android:textColor="#0F0F0F"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView10"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="cena"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:text="Cena"
+            android:textColor="#0F0F0F"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="wiecej"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:text="Więcej"
+            android:textColor="#0F0F0F"
+            android:textSize="24sp" />
 
 
     </GridLayout>

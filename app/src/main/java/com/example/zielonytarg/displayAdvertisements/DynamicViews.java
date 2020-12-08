@@ -51,9 +51,11 @@ public class DynamicViews {
         final Button button = new Button((context));
         button.setLayoutParams(lparams);
         button.setTextSize(20);
-        button.setTextColor(Color.BLACK);
+        button.setTextColor(Color.parseColor("#009933"));
         button.setMaxEms(8);
-        button.setText("Wiecej");
+        button.setText("Więcej");
+        button.setBackgroundColor(Color.parseColor("#F3F4F0"));
+       // button.setTextColor(Color.parseColor("#009933"));
         return button;
     }
 

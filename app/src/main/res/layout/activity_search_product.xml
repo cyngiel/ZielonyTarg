@@ -13,7 +13,8 @@
         android:layout_marginTop="8dp"
         android:background="#FFFFFF"
         android:text="Marchew"
-        android:textColor="#808080"
+        android:textStyle="bold"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />

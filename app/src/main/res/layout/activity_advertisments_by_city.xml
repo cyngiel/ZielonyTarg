@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Wybierz miasto"
+        android:textStyle="bold"
         android:textColor="#009933"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:text="Warszawa"
-            android:textColor="#808080"/>
+            android:textColor="#000000"/>
 
         <Button
             android:id="@+id/btn_katowice"
@@ -46,7 +47,7 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:text="Katowice"
-            android:textColor="#808080" />
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btn_lodz"
@@ -54,7 +55,7 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:text="Łódź"
-            android:textColor="#808080" />
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btn_bydgoszcz"
@@ -62,7 +63,7 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:text="Bydgoszcz"
-            android:textColor="#808080" />
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btn_gdynia"
@@ -70,7 +71,7 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:text="Gdynia"
-            android:textColor="#808080" />
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btn_krakow"
@@ -78,7 +79,7 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:text="Kraków"
-            android:textColor="#808080" />
+            android:textColor="#000000" />
 
     </LinearLayout>
 

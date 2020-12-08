@@ -45,7 +45,7 @@ public class DisplayUserAdvertisements extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         int i = task.getResult().size();
                         getUserAds(i);
-                        Toast.makeText(DisplayUserAdvertisements.this, "Liczba ogloszen: " + i, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DisplayUserAdvertisements.this, "Liczba ogłoszeń: " + i, Toast.LENGTH_SHORT).show();
                     }
                 });
             }

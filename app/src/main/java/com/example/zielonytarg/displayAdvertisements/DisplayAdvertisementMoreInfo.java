@@ -80,13 +80,13 @@ public class DisplayAdvertisementMoreInfo extends AppCompatActivity {
 
 
     private void setText() {
-        disp_ad_nazwa.setText("nazwa: " + nazwa);
-        disp_ad_cena.setText(" cena: " + cena);
-        disp_ad_opis.setText("opis: " + opis);
-        disp_ad_miasto.setText(" miasto: " + miasto);
-        disp_ad_name.setText("Imie nazwisko: " + name);
-        disp_ad_tel.setText(" miasto: " + city);
-        disp_ad_city.setText(" tel: " + tel);
+        disp_ad_nazwa.setText("Nazwa: " + nazwa);
+        disp_ad_cena.setText("Cena: " + cena);
+        disp_ad_opis.setText("Opis: " + opis);
+        disp_ad_miasto.setText("Miasto: " + miasto);
+        disp_ad_name.setText("Imię: " + name);
+        disp_ad_tel.setText("Miasto: " + city);
+        disp_ad_city.setText("Tel: " + tel);
     }
 
     private void linkResToFields() {

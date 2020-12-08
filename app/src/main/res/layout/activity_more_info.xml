@@ -60,6 +60,7 @@
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:text="Aplikacja Zielony Targ umożliwia dodawanie ogłoszeń"
+            android:textColor="#0B0A0A"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/btn_return"
             app:layout_constraintEnd_toEndOf="parent"

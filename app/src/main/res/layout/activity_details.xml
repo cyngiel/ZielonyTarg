@@ -31,6 +31,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Producent"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView48" />
@@ -51,7 +53,8 @@
             android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="Informacje"
-            android:textSize="14sp"
+            android:textSize="18sp"
+            android:textColor="#009933"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -64,6 +67,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Cena"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView46" />
@@ -83,6 +88,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Odmiana"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView49" />

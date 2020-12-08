@@ -48,6 +48,8 @@
             android:layout_height="41dp"
             android:gravity="center"
             android:text="Opis"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView51" />
@@ -57,7 +59,9 @@
             android:layout_width="170dp"
             android:layout_height="41dp"
             android:gravity="center"
+            android:textColor="#000000"
             android:text="Tytuł"
+            android:textStyle="bold"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView48" />
@@ -69,6 +73,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Edytuj ogłoszenie"
+            android:textColor="#009933"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,6 +87,8 @@
             android:layout_height="41dp"
             android:gravity="center"
             android:text="Kategoria"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView46" />
@@ -92,6 +99,8 @@
             android:layout_height="41dp"
             android:gravity="center"
             android:text="Cena"
+            android:textStyle="bold"
+            android:textColor="#000000"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView49" />
