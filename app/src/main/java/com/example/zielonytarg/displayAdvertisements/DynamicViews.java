@@ -41,7 +41,7 @@ public class DynamicViews {
         textView.setLayoutParams(lparams);
         textView.setTextSize(20);
         textView.setTextColor(Color.BLACK);
-        textView.setText(" " + text + " ");
+        textView.setText(" " + text + "zł ");
         textView.setMaxEms(8);
         return textView;
     }

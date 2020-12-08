@@ -2,9 +2,10 @@ package com.example.zielonytarg.displayAdvertisements;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,10 +28,13 @@ public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
     private GridLayout mLayout;
     DynamicViews dnV;
     Context context;
+    TextView dispBySearchNoAds;
 
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     Task getSizeTask;
+
+    int nAds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
         firebaseInit();
 
         mLayout = findViewById(R.id.mylayout2);
+        dispBySearchNoAds = findViewById(R.id.dispBySearchNoAds);
 
         getUserSize();
 
@@ -76,21 +81,24 @@ public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 List<DocumentSnapshot> list = task.getResult().getDocuments();
 
+                nAds = 0;
+
                 for (int i = 0; i < size; i++) {
                     getAds(list.get(i));
                 }
 
             }
         });
+        //Toast.makeText(DisplayAdvertiesementsBySearch.this, "Liczbafyy ogloszen: " + nAds, Toast.LENGTH_SHORT).show();
+
     }
 
-    private void getAds(final DocumentSnapshot ds){
+    private void getAds(final DocumentSnapshot ds) {
 
         ds.getReference().collection("Ads").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 List<DocumentSnapshot> list = task.getResult().getDocuments();
-
                 for (int i = 0; i < list.size(); i++) {
                     addNextAd(list.get(i));
                 }
@@ -107,6 +115,8 @@ public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
         //Toast.makeText(DisplayAdvertiesementsBySearch.this, miasto + " " + kategoria, Toast.LENGTH_SHORT).show();
 
         if (city.equalsIgnoreCase(miasto) && category.equalsIgnoreCase(kategoria)) {
+            nAds++;
+            dispBySearchNoAds.setVisibility(View.GONE);
             String nazwa = ds.getString("nazwa");
             String cena = ds.getString("cena");
             String opis = ds.getString("opis");
@@ -118,7 +128,6 @@ public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
             Button moreInfo = dnV.moreInfoButton(getApplicationContext());
             moreInfo.setOnClickListener(new DisplayAdMoreInfoOnClickListener(nazwa, opis, cena, miasto, uid, getApplicationContext()));
             mLayout.addView(moreInfo, 5);
-
         }
 
     }
@@ -139,6 +148,7 @@ public class DisplayAdvertiesementsBySearch extends AppCompatActivity {
                         //Toast.makeText(DisplayAdvertiesementsBySearch.this, miasto + " " + kategoria, Toast.LENGTH_SHORT).show();
 
                         if (miasto.equalsIgnoreCase(city) && kategoria.equalsIgnoreCase(category)) {
+                            nAds++;
                             String nazwa = task.getResult().getString("nazwa");
                             String cena = task.getResult().getString("cena");
                             String opis = task.getResult().getString("opis");

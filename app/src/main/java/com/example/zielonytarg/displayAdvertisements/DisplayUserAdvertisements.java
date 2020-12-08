@@ -81,7 +81,7 @@ public class DisplayUserAdvertisements extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
                         String nazwa =  task.getResult().getString("nazwa");
-                        String cena =  task.getResult().getString("cena");
+                        String cena =  task.getResult().getString("cena") + "zł";
                         String opis =  task.getResult().getString("opis");
                         String miasto =  task.getResult().getString("miasto");
                         String uid =  task.getResult().getString("userID");

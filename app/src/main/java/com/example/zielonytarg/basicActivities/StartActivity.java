@@ -29,6 +29,8 @@ public class StartActivity extends AppCompatActivity {
 
         linkResourcesToFields();
 
+        BtnDatabaseTest.setVisibility(View.GONE);
+
         BtnAddAdvertisements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

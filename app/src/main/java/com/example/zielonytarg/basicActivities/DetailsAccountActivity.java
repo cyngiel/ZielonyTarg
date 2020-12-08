@@ -84,7 +84,7 @@ public class DetailsAccountActivity extends AppCompatActivity {
         detailsAccountTel = findViewById(R.id.detailsAccountTel);
         detailsAccountCity = findViewById(R.id.detailsAccountCity);
         btnDetailsAccountReturn = findViewById(R.id.btnDetailsAccountReturn);
-        btnDetailsAccountLogout = findViewById(R.id.btnDetailsAccountReturn);
+        btnDetailsAccountLogout = findViewById(R.id.btnDetailsAccountLogout);
     }
 
     void firebaseInit() {
