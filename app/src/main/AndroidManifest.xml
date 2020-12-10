@@ -9,28 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".displayAdvertisements.DisplayUserAdvertisements"></activity>
-        <activity android:name=".displayAdvertisements.DisplayAdvertisementMoreInfo" />
-        <activity android:name=".displayAdvertisements.DisplayAdvertiesementsBySearch" />
-        <activity android:name=".displayAdvertisements.DisplayMyUserAdvertisements" />
-        <activity android:name=".basicActivities.MainActivity">
+        <activity android:name=".displayAdvertisements.DisplayUserAdvertisements" android:screenOrientation="portrait"/>
+        <activity android:name=".displayAdvertisements.DisplayAdvertisementMoreInfo" android:screenOrientation="portrait"/>
+        <activity android:name=".displayAdvertisements.DisplayAdvertiesementsBySearch" android:screenOrientation="portrait"/>
+        <activity android:name=".displayAdvertisements.DisplayMyUserAdvertisements" android:screenOrientation="portrait"/>
+        <activity android:name=".basicActivities.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".advertisements.AddAdvertisementsStartActivity" />
-        <activity android:name=".basicActivities.LoginActivity" />
-        <activity android:name=".basicActivities.RegisterActivity" />
-        <activity android:name=".basicActivities.StartActivity" />
-        <activity android:name=".basicActivities.MoreInfoActivity" />
-        <activity android:name=".advertisements.AdvertismentsByCityActivity" />
-        <activity android:name=".basicActivities.DatabaseTestActivity" />
-        <activity android:name=".basicActivities.SearchActivity" />
-        <activity android:name=".basicActivities.SearchProductActivity" />
-        <activity android:name=".basicActivities.DetailsActivity" />
-        <activity android:name=".basicActivities.DetailsAccountActivity" />
+        <activity android:name=".advertisements.AddAdvertisementsStartActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".basicActivities.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".basicActivities.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".basicActivities.StartActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".basicActivities.MoreInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".advertisements.AdvertismentsByCityActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".basicActivities.DatabaseTestActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".basicActivities.SearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".basicActivities.SearchProductActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".basicActivities.DetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".basicActivities.DetailsAccountActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
